@@ -9,7 +9,7 @@ const getForecastByCity = async (city) => {
     methods.get,
     null,
   );
-  return result;
+  return result.data;
 };
 
 const weatherAPI = {

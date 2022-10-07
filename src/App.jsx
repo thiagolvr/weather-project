@@ -4,9 +4,10 @@ import weatherAPI from './services/weatherAPI';
 
 function App() {
   useEffect(() => {
-    weatherAPI.getForecastByCity('London').then((response) => {
-      console.log(response);
-    });
+    weatherAPI.getForecastByCity('London')
+      .then((response) => {
+        console.log(response);
+      });
   }, []);
 
   return (

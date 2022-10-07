@@ -1,10 +1,10 @@
-function Home() {
+function CityForecast() {
   return (
     <div>
-      <h1>Home</h1>
-      <p>Home page</p>
+      <h1>CityForecast</h1>
+      <p>CityForecast page</p>
     </div>
   );
 }
 
-export default Home;
+export default CityForecast;

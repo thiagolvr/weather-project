@@ -4,7 +4,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const getForecastByCity = async (city) => {
   const result = await request(
-    `/forecast.json?key=${API_KEY}&q=${city}&days=3`,
+    `/forecast.json?key=${API_KEY}&q=${city}`,
     statusCode.OK,
     methods.get,
     null,

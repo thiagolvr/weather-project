@@ -1,0 +1,17 @@
+#root {
+  --text-color:#fff;
+}
+
+.city__card {
+  font-family: "Poppins", sans-serif;
+  background: none;
+  border: none;
+
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  font-weight: 300;
+  text-align: center;
+  font-size: 1.3rem;
+}

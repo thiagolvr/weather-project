@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import weatherAPI from '../services/weatherAPI';
-import serialize from '../utils/serialize';
+import weatherAPI from '../../services/weatherAPI';
+import serialize from '../../utils/serialize';
 
 function CityForecast() {
   const { city } = useParams();

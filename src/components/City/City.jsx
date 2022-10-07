@@ -1,14 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import './City.scss';
 
 function City({ city }) {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <button type="button" onClick={() => navigate(`/forecast/${city}`)}>
-        {city}
-      </button>
-    </div>
+    <button className="city__card" type="button" onClick={() => navigate(`/forecast/${city}`)}>
+      {city}
+    </button>
   );
 }
 

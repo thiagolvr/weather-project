@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
-import Home from '../pages/Home';
-import CityForecast from '../pages/CityForecast';
+import Home from '../pages/Home/Home';
+import CityForecast from '../pages/CityForecast/CityForecast';
 
 function Routes() {
   return useRoutes([

@@ -62,7 +62,7 @@ export const MainIcon = styled.div`
   margin-bottom: 40px;
 
   img {
-    margin-top: 40px;
+    margin-top: 50px;
     width: 130px;
     height: 130px;
   }
@@ -128,6 +128,7 @@ export const TemperatureInfo = styled.section`
     width: 15px;
     height: 15px;
     margin-right: 15px;
+    margin-bottom: 2px;
   }
 
   .reverse {
@@ -139,7 +140,11 @@ export const TemperatureInfo = styled.section`
     align-items: center;
     justify-content: space-between;
     font-size: 1em;
-    font-weight: 100;
+    font-weight: 200;
+  }
+
+  div {
+    height: 3px;
   }
 `;
 
@@ -160,7 +165,7 @@ export const ForecastList = styled.div`
 
   span:nth-child(1) {
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     margin-right: 3px;
   }
 
@@ -183,10 +188,21 @@ export const ForecastMoreInfo = styled.div`
   }
 
   p {
-    color: ${({ weather }) => (weather === 'snow' ? '#5e5e5e' : '##ebf6f8')};
     font-weight: 200;
     letter-spacing: 1px;
     margin-bottom: 5px;
+    color: ${({ weather }) => {
+    switch (weather) {
+      case 'snow':
+        return '#5e5e5e';
+
+      case 'rain':
+        return '#ebf6f89f';
+
+      default:
+        return '#ebf6f89f';
+    }
+  }}
   }
 
   span {

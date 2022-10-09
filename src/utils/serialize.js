@@ -2,7 +2,8 @@ const serialize = (obj) => ({
   name: obj?.location?.name,
   condition: obj?.current?.condition?.text,
   temperature: obj?.current?.temp_c,
-  icon: obj?.current?.condition?.icon,
+  image: obj?.current?.condition?.icon.split('/')[6].replace('.png', '.svg'),
+  time: obj?.current?.condition?.icon.split('/')[5],
   maxTemperature: obj?.forecast?.forecastday[0]?.day?.maxtemp_c,
   minTemperature: obj?.forecast?.forecastday[0]?.day?.mintemp_c,
   dawn: {

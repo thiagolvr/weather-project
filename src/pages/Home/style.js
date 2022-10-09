@@ -1,20 +1,18 @@
-#root {
-  --background-color: #0F0F0F;
-  --title-color: #FFFFFF;
-  --text-color:#CECECE;
-}
+import styled from 'styled-components';
 
-.home-container {
+export const HomeContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background-color: var(--background-color);
+  background-color: #0F0F0F;
   padding: 0 20px;
 
-  .home-content {
+`;
+
+export const HomeContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,30 +21,31 @@
 
     text-align: center;
 
-    .home__title {
+    h1 {
       font-family: "Poppins", sans-serif;
-      color: var(--title-color);
-      font-weight: 100;
+      color:  #FFFFFF;
+      font-weight: 200;
       font-size: 2.5rem;
       text-transform: uppercase;
       letter-spacing: 3px;
     }
 
-    .home__label {
+    p {
       font-family: "Poppins", sans-serif;
       font-weight: 100;
       font-size: 1.5rem;
-      color: var(--text-color);
+      color:#CECECE;
       letter-spacing: 2px;
+      margin-top: -10px;
     }
 
-    .home__img {
+    img {
       margin-top: 2rem;
       width: 40%;
       margin-bottom: 5px;
     }
 
-    .home__cities {
+    div {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -55,6 +54,5 @@
       margin-top: 2rem;
       gap: 2rem;
     }
-  }
-}
 
+     `;

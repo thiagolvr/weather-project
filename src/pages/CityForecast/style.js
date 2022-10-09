@@ -6,7 +6,7 @@ const background = {
     background: linear-gradient(
       194deg,
       rgba(87, 202, 219, 1) 0%,
-      rgba(68, 175, 193, 1) 100%
+      rgba(8, 155, 193, 1) 100%
     );
     color: white;
   `,
@@ -59,12 +59,12 @@ export const ForecastContent = styled.div`
 `;
 
 export const MainIcon = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   img {
-    margin-top: 20px;
-    width: 150px;
-    height: 150px;
+    margin-top: 40px;
+    width: 130px;
+    height: 130px;
   }
 `;
 
@@ -83,6 +83,7 @@ export const Title = styled.div`
     text-transform: lowercase;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    margin-top: -5px;
   }
 `;
 
@@ -93,6 +94,7 @@ export const TemperatureContainer = styled.div`
   span {
     font-size: 7em;
     line-height: 80px;
+    font-family: "Poppins", sans-serif;
   }
 
   section {
@@ -107,10 +109,9 @@ export const TemperatureContainer = styled.div`
 
   div {
     margin-left: 20px;
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 20px;
-    font-family: "Montserrat", sans-serif;
-
+    font-family: "Nanum Gothic", sans-serif;
   }
 `;
 
@@ -146,12 +147,26 @@ export const ForecastList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 
   p {
     font-family: "Poppins", sans-serif;
     font-size: small;
-    color: ${({ weather }) => (weather === 'sun' || weather === 'rain' ? '#ebf6f8' : '#3d3d3d')};
+    color: ${({ weather }) => (weather === 'snow' ? '#3d3d3d' : '#ebf6f8')};
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+
+  }
+
+  span:nth-child(1) {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    margin-right: 3px;
+  }
+
+  span {
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 1.1em;
   }
 `;
 
@@ -168,17 +183,62 @@ export const ForecastMoreInfo = styled.div`
   }
 
   p {
-    color: ${({ weather }) => (weather === 'sun' || weather === 'rain' ? '##ebf6f8' : '#5e5e5e')};
+    color: ${({ weather }) => (weather === 'snow' ? '#5e5e5e' : '##ebf6f8')};
     font-weight: 200;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
   }
 
   span {
     font-weight: 200;
+    letter-spacing: 1px;
+  }
+
+
+  hr {
+    height: 25px;
+    border-color: ${({ weather }) => {
+    switch (weather) {
+      case 'snow':
+        return '#a9a9a930';
+
+      case 'rain':
+        return '#ebf6f810';
+
+      default:
+        return '#ebf6f860';
+    }
+  }};
+  }
+
+  .first {
+    margin-left: 10px;
   }
 
   div {
     display: flex;
     min-width: 80px;
     flex-direction: column;
+  }
+`;
+
+export const BackButton = styled.button`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: ${({ weather }) => (weather === 'snow' ? '#5e5e5e' : '##ebf6f8')};
+
+  img {
+    width: 30px;
+    height: 30px;
+    ${({ weather }) => (weather === 'snow' ? css`
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7178%) hue-rotate(73deg) brightness(95%) contrast(104%);
+    ` : css`
+      filter:  brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(317deg) brightness(103%) contrast(102%);
+    `)};
   }
 `;

@@ -1,16 +1,16 @@
 import City from '../../components/City/City';
 import wordIcon from '../../assets/imgs/word-icon.png';
-import './Home.scss';
+import * as S from './style';
 
 function Home() {
   const cities = ['Dallol', 'Fairbanks', 'London', 'Recife', 'Vancouver', 'Yakutsk'];
 
   return (
-    <div className="home-container">
-      <div className="home-content">
+    <S.HomeContainer>
+      <S.HomeContent>
         <header>
-          <h1 className="home__title">Weather</h1>
-          <p className="home__label">select a city</p>
+          <h1>Weather</h1>
+          <p>select a city</p>
         </header>
         <main>
           <img className="home__img" src={wordIcon} alt="word icon" />
@@ -18,8 +18,8 @@ function Home() {
             { cities?.map((city) => (<City key={city} city={city} />))}
           </div>
         </main>
-      </div>
-    </div>
+      </S.HomeContent>
+    </S.HomeContainer>
   );
 }
 

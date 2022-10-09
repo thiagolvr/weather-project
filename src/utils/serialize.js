@@ -8,19 +8,23 @@ const serialize = (obj) => ({
   minTemperature: obj?.forecast?.forecastday[0]?.day?.mintemp_c,
   dawn: {
     temperature: obj?.forecast?.forecastday[0]?.hour?.[4].temp_c,
-    icon: obj?.forecast?.forecastday[0]?.hour?.[4].condition?.icon,
+    image: obj?.forecast?.forecastday[0]?.hour?.[4].condition?.icon.split('/')[6].replace('.png', '.svg'),
+    time: obj?.forecast?.forecastday[0]?.hour?.[4].condition?.icon.split('/')[5],
   },
   morning: {
     temperature: obj?.forecast?.forecastday[0]?.hour?.[10].temp_c,
-    icon: obj?.forecast?.forecastday[0]?.hour?.[10].condition?.icon,
+    image: obj?.forecast?.forecastday[0]?.hour?.[10].condition?.icon.split('/')[6].replace('.png', '.svg'),
+    time: obj?.forecast?.forecastday[0]?.hour?.[10].condition?.icon.split('/')[5],
   },
   afternoon: {
     temperature: obj?.forecast?.forecastday[0]?.hour?.[16].temp_c,
-    icon: obj?.forecast?.forecastday[0]?.hour?.[16].condition?.icon,
+    image: obj?.forecast?.forecastday[0]?.hour?.[16].condition?.icon.split('/')[6].replace('.png', '.svg'),
+    time: obj?.forecast?.forecastday[0]?.hour?.[16].condition?.icon.split('/')[5],
   },
   night: {
     temperature: obj?.forecast?.forecastday[0]?.hour?.[22].temp_c,
-    icon: obj?.forecast?.forecastday[0]?.hour?.[22].condition?.icon,
+    image: obj?.forecast?.forecastday[0]?.hour?.[22].condition?.icon.split('/')[6].replace('.png', '.svg'),
+    time: obj?.forecast?.forecastday[0]?.hour?.[22].condition?.icon.split('/')[5],
   },
   windSpeed: obj?.current?.wind_kph,
   humidity: obj?.current?.humidity,

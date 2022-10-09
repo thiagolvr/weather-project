@@ -20,11 +20,13 @@ function CityForecast() {
     .some((item) => condition?.toLowerCase().includes(item));
 
   const forecastColor = (condition) => {
-    if (verifyConditions(['rain', 'cloudy', 'overcast', 'drizzle'], condition)) {
+    if (
+      verifyConditions(['rain', 'cloudy', 'overcast', 'drizzle'], condition)
+    ) {
       return 'rain';
     }
     if (verifyConditions(['snow'], condition)) {
-      return 'snow';
+      return 'snow'; // unico escuro
     }
     if (verifyConditions(['sun', 'clear'], condition)) {
       return 'sun';
@@ -43,19 +45,34 @@ function CityForecast() {
           <p>{forecast?.condition}</p>
         </S.Title>
         <S.TemperatureContainer>
-          <span>
-            {Math.round(forecast?.temperature)}
-          </span>
+          <span>{Math.round(forecast?.temperature)}</span>
           <section>
             <div>°C</div>
             <S.TemperatureInfo>
               <p>
-                <img src={forecastColor(forecast?.condition) === 'sun' || forecastColor(forecast?.condition) === 'rain' ? arrowUp2 : arrowUp} alt="arrow-up" />
+                <img
+                  src={
+                    forecastColor(forecast?.condition) === 'sun'
+                    || forecastColor(forecast?.condition) === 'rain'
+                      ? arrowUp2
+                      : arrowUp
+                  }
+                  alt="arrow-up"
+                />
                 {Math.round(forecast?.maxTemperature)}
                 °
               </p>
               <p>
-                <img className="reverse" src={forecastColor(forecast?.condition) === 'sun' || forecastColor(forecast?.condition) === 'rain' ? arrowUp2 : arrowUp} alt="arrow-up" />
+                <img
+                  className="reverse"
+                  src={
+                    forecastColor(forecast?.condition) === 'sun'
+                    || forecastColor(forecast?.condition) === 'rain'
+                      ? arrowUp2
+                      : arrowUp
+                  }
+                  alt="arrow-up"
+                />
                 {Math.round(forecast?.minTemperature)}
                 °
               </p>
@@ -63,12 +80,20 @@ function CityForecast() {
           </section>
         </S.TemperatureContainer>
         <S.MainIcon>
-          {/* <img className="main-icon" src={"//"} alt="" /> */}
+          <img
+            className="main-icon"
+            src={`https://raw.githubusercontent.com/thiagolvr/weather-project/dfd52b13f2b4d0b88a3ec166f2e7df653d1e722e/src/assets/imgs/${forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'}/${forecast?.time}/${forecast?.image}`}
+            alt=""
+          />
         </S.MainIcon>
         <S.ForecastList weather={forecastColor(forecast?.condition)}>
           <div>
             <p>dawn</p>
-            <img src={forecast?.dawn?.icon} alt="dawn icon" />
+            <img
+              className="main-icon"
+              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/dfd52b13f2b4d0b88a3ec166f2e7df653d1e722e/src/assets/imgs/${forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'}/${forecast?.dawn?.time}/${forecast?.dawn?.image}`}
+              alt=""
+            />
             <div>
               {Math.round(forecast?.dawn?.temperature)}
               °C
@@ -76,7 +101,11 @@ function CityForecast() {
           </div>
           <div>
             <p>morning</p>
-            <img src={forecast?.morning?.icon} alt="morning icon" />
+            <img
+              className="main-icon"
+              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/dfd52b13f2b4d0b88a3ec166f2e7df653d1e722e/src/assets/imgs/${forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'}/${forecast?.morning?.time}/${forecast?.morning?.image}`}
+              alt=""
+            />
             <div>
               {Math.round(forecast?.morning?.temperature)}
               °C
@@ -84,7 +113,12 @@ function CityForecast() {
           </div>
           <div>
             <p>afternoon</p>
-            <img src={forecast?.afternoon?.icon} alt="afternoon icon" />
+            <img
+              className="main-icon"
+              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/dfd52b13f2b4d0b88a3ec166f2e7df653d1e722e/src/assets/imgs/
+              ${forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'}/${forecast?.afternoon?.time}/${forecast?.afternoon?.image}`}
+              alt=""
+            />
             <div>
               {Math.round(forecast?.afternoon?.temperature)}
               °C
@@ -92,7 +126,12 @@ function CityForecast() {
           </div>
           <div>
             <p>night</p>
-            <img src={forecast?.night?.icon} alt="night icon" />
+            <img
+              className="main-icon"
+              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/dfd52b13f2b4d0b88a3ec166f2e7df653d1e722e/src/assets/imgs/
+              ${forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'}/${forecast?.night?.time}/${forecast?.night?.image}`}
+              alt=""
+            />
             <div>
               {Math.round(forecast?.night?.temperature)}
               °C
@@ -128,7 +167,6 @@ function CityForecast() {
           </div>
         </S.ForecastMoreInfo>
       </S.ForecastContent>
-
     </S.ForecastContainer>
   );
 }

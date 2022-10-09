@@ -62,10 +62,9 @@ export const MainIcon = styled.div`
   margin-bottom: 20px;
 
   img {
-    margin-top: 30px;
-    width: 180px;
-    height: 180px;
-
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
   }
 `;
 
@@ -171,7 +170,6 @@ export const ForecastMoreInfo = styled.div`
   p {
     color: ${({ weather }) => (weather === 'sun' || weather === 'rain' ? '##ebf6f8' : '#5e5e5e')};
     font-weight: 200;
-
   }
 
   span {

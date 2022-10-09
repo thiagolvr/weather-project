@@ -1,9 +1,16 @@
 import City from '../../components/City/City';
-import wordIcon from '../../assets/imgs/word-icon.png';
+import wordIcon from '../../assets/icons/word-icon.png';
 import * as S from './style';
 
 function Home() {
-  const cities = ['Dallol', 'Fairbanks', 'London', 'Recife', 'Vancouver', 'Yakutsk'];
+  const cities = [
+    'Dallol',
+    'Fairbanks',
+    'London',
+    'Recife',
+    'Vancouver',
+    'Yakutsk',
+  ];
 
   return (
     <S.HomeContainer>
@@ -15,7 +22,9 @@ function Home() {
         <main>
           <img className="home__img" src={wordIcon} alt="word icon" />
           <div className="home__cities">
-            { cities?.map((city) => (<City key={city} city={city} />))}
+            {cities?.map((city) => (
+              <City key={city} city={city} />
+            ))}
           </div>
         </main>
       </S.HomeContent>

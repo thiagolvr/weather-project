@@ -1,19 +1,23 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import weatherAPI from '../../services/weatherAPI';
 import serialize from '../../utils/serialize';
 import * as S from './style';
-import arrowRain from '../../assets/imgs/arrowRain.svg';
-import arrowSnow from '../../assets/imgs/arrowSnow.svg';
-import arrowSun from '../../assets/imgs/arrowSun.svg';
 import Loading from '../../components/Loading/Loading';
-import arrowBack from '../../assets/imgs/arrowBack.svg';
+import arrowBack from '../../assets/icons/arrowBack.svg';
+import PeriodsDay from '../../components/PeriodsDay/PeriodsDay';
+import ForecastExtraInfo from '../../components/ForecastExtraInfo/ForecastExtraInfo';
+import constants from '../../utils/constants';
+import MainTemperature from '../../components/MainTemperature/MainTemperature';
 
 function CityForecast() {
   const { city } = useParams();
   const navigate = useNavigate();
   const [forecast, setForecast] = useState(null);
   const [loading, setLoading] = useState(true);
+  const {
+    SUNRISE, SUNSET, CONDITION, URL_BASE,
+  } = constants(forecast);
 
   useEffect(() => {
     setLoading(true);
@@ -29,51 +33,11 @@ function CityForecast() {
       });
   }, []);
 
-  const verifyConditions = (arr, condition) => arr
-    .some((item) => condition?.toLowerCase().includes(item));
-
-  const forecastColor = (condition) => {
-    if (
-      verifyConditions(
-        ['rain', 'cloudy', 'overcast', 'drizzle', 'shower'],
-        condition,
-      )
-    ) {
-      return 'rain';
-    }
-    if (verifyConditions(['snow'], condition)) {
-      return 'snow';
-    }
-    if (verifyConditions(['sun', 'clear'], condition)) {
-      return 'sun';
-    }
-    return 'default';
-  };
-
-  const setArrow = (condition) => {
-    switch (condition) {
-      case 'rain':
-        return arrowRain;
-
-      case 'snow':
-        return arrowSnow;
-
-      default:
-        return arrowSun;
-    }
-  };
-
-  const sunrise = forecast?.sunrise.replace(/^(?:00:)?0?/, '');
-  const sunset = forecast?.sunset.replace(/^(?:00:)?0?/, '');
-
   return loading ? (
     <Loading />
   ) : (
-    <S.ForecastContainer weather={forecastColor(forecast?.condition)}>
-      <S.BackButton
-        onClick={() => navigate('/')}
-        weather={forecastColor(forecast?.condition)}
-      >
+    <S.ForecastContainer weather={CONDITION}>
+      <S.BackButton onClick={() => navigate('/')} weather={CONDITION}>
         <img src={arrowBack} alt="Voltar" />
       </S.BackButton>
       <S.ForecastContent>
@@ -81,138 +45,27 @@ function CityForecast() {
           <h1>{forecast?.name}</h1>
           <p>{forecast?.condition}</p>
         </S.Title>
-        <S.TemperatureContainer>
-          <span>{Math.round(forecast?.temperature)}</span>
-          <section>
-            <div>°C</div>
-            <S.TemperatureInfo>
-              <p>
-                <img
-                  src={setArrow(forecastColor(forecast?.condition))}
-                  alt="arrow-up"
-                />
-                {Math.round(forecast?.maxTemperature)}
-                ˚
-              </p>
-              <div />
-              <p>
-                <img
-                  className="reverse"
-                  src={setArrow(forecastColor(forecast?.condition))}
-                  alt="arrow-down"
-                />
-                {Math.round(forecast?.minTemperature)}
-                ˚
-              </p>
-            </S.TemperatureInfo>
-          </section>
-        </S.TemperatureContainer>
+        <MainTemperature forecast={forecast} condition={CONDITION} />
         <S.MainIcon>
           <img
             className="main-icon"
-            src={`https://raw.githubusercontent.com/thiagolvr/weather-project/60d7bf8004be62a72752ee6fc43b16ede4f33022/src/assets/imgs/${
-              forecastColor(forecast?.condition) === 'snow' ? 'black' : 'white'
-            }/${forecast?.time}/${forecast?.image}`}
+            src={`${URL_BASE}${CONDITION === 'snow' ? 'black' : 'white'}/${
+              forecast?.time
+            }/${forecast?.image}`}
             alt=""
           />
         </S.MainIcon>
-        <S.ForecastList weather={forecastColor(forecast?.condition)}>
-          <div>
-            <p>dawn</p>
-            <img
-              className="main-icon"
-              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/60d7bf8004be62a72752ee6fc43b16ede4f33022/src/assets/imgs/${
-                forecastColor(forecast?.condition) === 'snow'
-                  ? 'black'
-                  : 'white'
-              }/${forecast?.dawn?.time}/${forecast?.dawn?.image}`}
-              alt=""
-            />
-            <div>
-              <span>{Math.round(forecast?.dawn?.temperature)}</span>
-              <span>°</span>
-              <span>C</span>
-            </div>
-          </div>
-          <div>
-            <p>morning</p>
-            <img
-              className="main-icon"
-              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/60d7bf8004be62a72752ee6fc43b16ede4f33022/src/assets/imgs/${
-                forecastColor(forecast?.condition) === 'snow'
-                  ? 'black'
-                  : 'white'
-              }/${forecast?.morning?.time}/${forecast?.morning?.image}`}
-              alt=""
-            />
-            <div>
-              <span>{Math.round(forecast?.morning?.temperature)}</span>
-              <span>°</span>
-              <span>C</span>
-            </div>
-          </div>
-          <div>
-            <p>afternoon</p>
-            <img
-              className="main-icon"
-              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/60d7bf8004be62a72752ee6fc43b16ede4f33022/src/assets/imgs/${
-                forecastColor(forecast?.condition) === 'snow'
-                  ? 'black'
-                  : 'white'
-              }/${forecast?.afternoon?.time}/${forecast?.afternoon?.image}`}
-              alt=""
-            />
-            <div>
-              <span>{Math.round(forecast?.afternoon?.temperature)}</span>
-              <span>°</span>
-              <span>C</span>
-            </div>
-          </div>
-          <div>
-            <p>night</p>
-            <img
-              className="main-icon"
-              src={`https://raw.githubusercontent.com/thiagolvr/weather-project/60d7bf8004be62a72752ee6fc43b16ede4f33022/src/assets/imgs/${
-                forecastColor(forecast?.condition) === 'snow'
-                  ? 'black'
-                  : 'white'
-              }/${forecast?.night?.time}/${forecast?.night?.image}`}
-              alt=""
-            />
-            <div>
-              <span>{Math.round(forecast?.night?.temperature)}</span>
-              <span>°C</span>
-            </div>
-          </div>
-        </S.ForecastList>
-        <S.ForecastMoreInfo weather={forecastColor(forecast?.condition)}>
-          <div>
-            <p>wind speed</p>
-            <span>
-              {forecast?.windSpeed}
-              {' '}
-              m/s
-            </span>
-          </div>
-          <hr className="first" />
-          <div>
-            <p>sunrise</p>
-            <span>{sunrise}</span>
-          </div>
-          <hr />
-          <div>
-            <p>sunset</p>
-            <span>{sunset}</span>
-          </div>
-          <hr />
-          <div>
-            <p>humidity</p>
-            <span>
-              {forecast?.humidity}
-              %
-            </span>
-          </div>
-        </S.ForecastMoreInfo>
+        <PeriodsDay
+          weather={CONDITION}
+          urlbase={URL_BASE}
+          forecast={forecast}
+        />
+        <ForecastExtraInfo
+          weather={CONDITION}
+          forecast={forecast}
+          sunrise={SUNRISE}
+          sunset={SUNSET}
+        />
       </S.ForecastContent>
     </S.ForecastContainer>
   );

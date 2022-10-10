@@ -1,18 +1,25 @@
 import verifyConditions from './verifyConditions';
 
+const RAIN_VARIANTS = [
+  'rain',
+  'cloudy',
+  'overcast',
+  'drizzle',
+  'shower',
+  'thunder',
+  'mist',
+];
+const SNOW_VARIANTS = ['snow', 'fog', 'blizzard', 'sleet'];
+const SUN_VARIANTS = ['sun', 'clear'];
+
 const forecastResume = (condition) => {
-  if (
-    verifyConditions(
-      ['rain', 'cloudy', 'overcast', 'drizzle', 'shower'],
-      condition,
-    )
-  ) {
+  if (verifyConditions(RAIN_VARIANTS, condition)) {
     return 'rain';
   }
-  if (verifyConditions(['snow'], condition)) {
+  if (verifyConditions(SNOW_VARIANTS, condition)) {
     return 'snow';
   }
-  if (verifyConditions(['sun', 'clear'], condition)) {
+  if (verifyConditions(SUN_VARIANTS, condition)) {
     return 'sun';
   }
   return 'default';

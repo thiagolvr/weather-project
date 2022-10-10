@@ -1,4 +1,4 @@
 const verifyConditions = (arr, condition) => arr
-  .some((item) => condition?.toLowerCase().includes(item));
+  .some((conditionVariant) => condition?.toLowerCase().includes(conditionVariant));
 
 export default verifyConditions;

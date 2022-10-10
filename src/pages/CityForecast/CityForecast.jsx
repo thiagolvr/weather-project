@@ -38,7 +38,7 @@ function CityForecast() {
   ) : (
     <S.ForecastContainer weather={CONDITION}>
       <S.BackButton onClick={() => navigate('/')} weather={CONDITION}>
-        <img src={arrowBack} alt="Voltar" />
+        <img src={arrowBack} alt="arrow back icon" />
       </S.BackButton>
       <S.ForecastContent>
         <S.Title>

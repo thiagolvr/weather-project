@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import Home from '../pages/Home/Home';
 
-describe('Home', () => {
+describe('Home page', () => {
   it('should render the Home page "weather" title', () => {
     render(
       <BrowserRouter>

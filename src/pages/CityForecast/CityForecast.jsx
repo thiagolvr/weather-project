@@ -26,10 +26,6 @@ function CityForecast() {
       .then((data) => {
         setForecast(serialize(data));
         setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
       });
   }, []);
 

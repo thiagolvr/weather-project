@@ -35,7 +35,7 @@ React Testing Library
 3. Acesse o diretório do projeto e depois utilize o comando **npm i** para instalar todas as dependências necessárias:
 
 ```javascript
-  cd weather-app
+  cd weather-project
   npm i
 ```
 

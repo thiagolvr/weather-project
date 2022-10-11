@@ -1,4 +1,4 @@
-Esse projeto foi desenvolvido por _[Thiago Oliveira](www.linkedin.com/in/thiagolvr)_
+Esse projeto foi desenvolvido por _[Thiago Oliveira]
 
 # Project Weather App
 

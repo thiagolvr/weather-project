@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+Esse projeto foi desenvolvido por _[Thiago Oliveira](www.linkedin.com/in/thiagolvr)_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Weather App
 
-## Available Scripts
+Projeto que simula um app de previsão do tempo, utilizando a API do [weatherApi](https://weatherapi.com/).
+Foi desenvolvido com reactjs e styled-components.
 
-In the project directory, you can run:
+## Instalação do projeto localmente:
 
-### `npm start`
+1. Abra o terminal e crie um diretório no local de sua preferência com o comando **mkdir**:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```javascript
+  mkdir weather-app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Entre no diretório que acabou de criar e depois clone o projeto:
 
-### `npm test`
+```javascript
+  cd weather-app
+  git clone git@github.com:thiagolvr/weather-project.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Acesse o diretório do projeto e depois utilize o comando **npm i** para instalar todas as dependências necessárias:
 
-### `npm run build`
+```javascript
+  cd weather-app
+  npm i
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Inicialize a aplicação localmente com comando **npm start** e acesse o endereço **http://localhost:3000**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+  npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+  <summary>
+    <strong>💡 Deploy</strong>
+  </summary><br>
 
-### `npm run eject`
+- Foi utilizado o serviço Netlify para fazer o deploy da aplicação.
+- A aplicação está disponível no endereço: https://weather-app-thiagolvr.netlify.app/
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
+  <summary>
+    <strong>🐳 Rodando no Docker vs Localmente</strong>
+  </summary><br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Docker
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> Rode os serviços `node` com o comando `docker compose up -d`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Esse serviço irá inicializar um container chamado `weather-app`.
+- A partir daqui você pode rodar o container `weather-app` via CLI ou via um editor de código de sua preferência. Ex: VSCode.
+- Lembre-se de verificar se a porta 3000 não está ocupada.
+- A aplicação estará disponível em `http://localhost:3000`.
+- A flag `-d` roda o container em segundo plano.
+- Para parar o container, utilize o comando `docker compose down`.
 
-## Learn More
+> Use o comando `docker container exec -it weather-app sh`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
+- Você poderá usar esse terminal para executar os comandos do npm (`npm start`, `npm test`, `npm run test`, ...)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> As dependências já foram instaladas durante o processo com o comando `docker compose up -d`.
 
-### Code Splitting
+⚠ Atenção ⚠ Caso opte por utilizar o Docker, **TODOS** os comandos disponíveis no `package.json` (npm start, npm test, npm run test, ...) devem ser executados **DENTRO** do container, ou seja, no terminal que aparece após a execução do comando `docker container exec` citado acima.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Localmente
 
-### Analyzing the Bundle Size
+> Instale as dependências com `npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Para rodar localmente, é preciso ter o node instalado na sua máquina.
+- A versão do node precisa ser 16 ou superior.
 
-### Making a Progressive Web App
+</details>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<details>
+  <summary>
+    <strong>🛠 Testes</strong>
+  </summary><br>
 
-### Advanced Configuration
+- Para executar os testes localmente, digite no terminal o comando `npm test`.
+- Para executar os testes no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm test`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<details>
+  <summary>
+    <strong>🛠 Cobertura</strong>
+  </summary><br>
 
-### Deployment
+- Para executar a cobertura localmente, digite no terminal o comando `npm run test-coverage`.
+- Para executar a cobertura no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm test-coverage`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+</details>
 
-### `npm run build` fails to minify
+## Referências
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Documentação Oficial - Docker](https://docs.docker.com)<br>
+[Documentação Oficial - React Hooks](https://react-redux.js.org/api/hooks)<br>
+[Documentação Oficial - Styled Components](https://styled-components.com/docs)<br>
+[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)<br>

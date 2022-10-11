@@ -1,4 +1,4 @@
-const apiMockWhiteVersion = {
+const apiMockSun = {
   location: {
     name: 'London',
     region: 'City of London, Greater London',
@@ -1019,4 +1019,4 @@ const apiMockWhiteVersion = {
   },
 };
 
-export default apiMockWhiteVersion;
+export default apiMockSun;

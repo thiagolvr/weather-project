@@ -1,4 +1,4 @@
-const apiMockBlackVersion = {
+const apiMockSnow = {
   location: {
     name: 'Fairbanks',
     region: 'Alaska',
@@ -1019,4 +1019,4 @@ const apiMockBlackVersion = {
   },
 };
 
-export default apiMockBlackVersion;
+export default apiMockSnow;

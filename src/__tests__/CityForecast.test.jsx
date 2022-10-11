@@ -2,14 +2,15 @@ import React from 'react';
 import { screen, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import apiMockWhiteVersion from '../__mocks__/ApiMockWhiteVersion';
+import apiMockSun from '../__mocks__/apiMockSun';
 import App from '../App';
-import ApiMockBlackVersion from '../__mocks__/ApiMockBlackVersion';
+import apiMockSnow from '../__mocks__/apiMockSnow';
+import apiMockRain from '../__mocks__/apiMockRain';
 
 describe('CityForecast page', () => {
   beforeEach(() => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
-      json: jest.fn().mockResolvedValue(apiMockWhiteVersion),
+      json: jest.fn().mockResolvedValue(apiMockSun),
     });
   });
 
@@ -146,7 +147,7 @@ describe('CityForecast page', () => {
 
   it('should show black icons for all temperature fields', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
-      json: jest.fn().mockResolvedValue(ApiMockBlackVersion),
+      json: jest.fn().mockResolvedValue(apiMockSnow),
     });
 
     render(
@@ -179,5 +180,20 @@ describe('CityForecast page', () => {
     const nightTemperatureIcon = await screen.findByAltText(/icon of night temperature/i);
     expect(nightTemperatureIcon).toBeInTheDocument();
     expect(nightTemperatureIcon).toHaveAttribute('src', nightTemperatureIconUrl);
+  });
+
+  it('should check if the rain version renders correctly', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: jest.fn().mockResolvedValue(apiMockRain),
+    });
+
+    render(
+      <MemoryRouter initialEntries={[{ pathname: '/forecast/Fairbanks' }]}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const currentWeather = await screen.findByText(/overcast/i);
+    expect(currentWeather).toBeInTheDocument();
   });
 });

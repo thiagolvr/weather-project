@@ -1,15 +1,16 @@
-import request, { statusCode, methods } from './api';
-
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+const URL_BASE = 'https://api.weatherapi.com/v1';
+
 const getForecastByCity = async (city) => {
-  const result = await request(
-    `/forecast.json?key=${API_KEY}&q=${city}`,
-    statusCode.OK,
-    methods.get,
-    null,
-  );
-  return result.data;
+  try {
+    const response = await fetch(
+      `${URL_BASE}/forecast.json?key=${API_KEY}&q=${city}`,
+    );
+    return response.json();
+  } catch (error) {
+    return error;
+  }
 };
 
 const weatherAPI = {

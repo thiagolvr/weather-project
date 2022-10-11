@@ -1,4 +1,4 @@
-// import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as S from '../../pages/CityForecast/style';
 import setArrow from '../../utils/setArrow';
 
@@ -30,9 +30,30 @@ function MainTemperature({ condition, forecast }) {
   );
 }
 
-// MainTemperature.propTypes = {
-//   forecast: PropTypes.any,
-//   condition: PropTypes.string
-// };
+MainTemperature.propTypes = {
+  condition: PropTypes.string.isRequired,
+  forecast: PropTypes.shape({
+    dawn: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    morning: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    afternoon: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    night: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MainTemperature;

@@ -1,4 +1,4 @@
-// import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as S from '../../pages/CityForecast/style';
 
 function PeriodsDay({ weather, urlbase, forecast }) {
@@ -67,10 +67,31 @@ function PeriodsDay({ weather, urlbase, forecast }) {
   );
 }
 
-// PeriodsDay.propTypes = {
-//   weather: PropTypes.string,
-//   urlbase: PropTypes.string,
-//   forecast: PropTypes.any,
-// };
+PeriodsDay.propTypes = {
+  weather: PropTypes.string.isRequired,
+  urlbase: PropTypes.string.isRequired,
+  forecast: PropTypes.shape({
+    dawn: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    morning: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    afternoon: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    night: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default PeriodsDay;

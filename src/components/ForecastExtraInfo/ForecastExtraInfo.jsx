@@ -1,4 +1,4 @@
-// import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as S from '../../pages/CityForecast/style';
 
 function ForecastExtraInfo(props) {
@@ -38,11 +38,32 @@ function ForecastExtraInfo(props) {
   );
 }
 
-// ForecastExtraInfo.propTypes = {
-//   weather: PropTypes.string,
-//   forecast: PropTypes.any,
-//   sunrise: PropTypes.any,
-//   sunset: PropTypes.any
-// };
+ForecastExtraInfo.propTypes = {
+  weather: PropTypes.string.isRequired,
+  sunrise: PropTypes.string.isRequired,
+  sunset: PropTypes.string.isRequired,
+  forecast: PropTypes.shape({
+    dawn: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    morning: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    afternoon: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+    night: PropTypes.shape({
+      temperature: PropTypes.number,
+      image: PropTypes.string,
+      time: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default ForecastExtraInfo;

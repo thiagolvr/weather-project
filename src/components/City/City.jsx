@@ -1,3 +1,4 @@
+import * as PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import CityCardContainer from './style';
 
@@ -10,5 +11,9 @@ function City({ city }) {
     </CityCardContainer>
   );
 }
+
+City.propTypes = {
+  city: PropTypes.string.isRequired,
+};
 
 export default City;

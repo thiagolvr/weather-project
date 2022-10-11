@@ -1,7 +1,21 @@
+Esse projeto foi desenvolvido por _[Thiago Oliveira](www.linkedin.com/in/thiagolvr)_
+
 # Project Weather App
 
 Projeto que simula um app de previsão do tempo, utilizando a API do [weatherApi](https://weatherapi.com/).
 Foi desenvolvido com reactjs e styled-components.
+
+Weather
+:-------------------------:|
+![Screeshot](./images/weather.png) |
+
+---
+
+React Testing Library
+:-------------------------:|
+![Screeshot](./images/rtl.png) |
+
+---
 
 ## Instalação do projeto localmente:
 

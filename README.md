@@ -1,5 +1,3 @@
-Esse projeto foi desenvolvido por _[Thiago Oliveira]
-
 # Project Weather App
 
 Projeto que simula um app de previsão do tempo, utilizando a API do [weatherApi](https://weatherapi.com/).

@@ -8,6 +8,8 @@ RUN npm install --silent
 
 COPY . .
 
+EXPOSE 3000
+
 ENTRYPOINT [ "npm" ]
 
 CMD [ "start" ]

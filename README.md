@@ -61,11 +61,11 @@ React Testing Library
 
 ## Docker
 
-> Rode o serviço `node` com o comando `docker compose up -d`.
+> Rode os serviços `node` com o comando `docker compose up -d`.
 
 - Esse serviço irá inicializar um container chamado `weather-app`.
 - A partir daqui você pode rodar o container `weather-app` via CLI ou via um editor de código de sua preferência. Ex: VSCode.
-- Lembre-se de verificar se a porta 3000 não está ocupada.
+- Lembre-se de verificar se a sua porta 3000 não está ocupada.
 - A aplicação estará disponível em `http://localhost:3000`.
 - A flag `-d` roda o container em segundo plano.
 - Para parar o container, utilize o comando `docker compose down`.
@@ -73,18 +73,20 @@ React Testing Library
 > Use o comando `docker container exec -it weather-app sh`.
 
 - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
-- Você poderá usar esse terminal para executar os comandos do npm (`npm start`, `npm test`, `npm run test`, ...)
+- Você poderá usar esse terminal para executar os comandos do npm (`npm start`, `npm test` ...)
 
 > As dependências já foram instaladas durante o processo com o comando `docker compose up -d`.
 
-⚠ Atenção ⚠ Caso opte por utilizar o Docker, **TODOS** os comandos disponíveis no `package.json` (npm start, npm test, npm run test, ...) devem ser executados **DENTRO** do container, ou seja, no terminal que aparece após a execução do comando `docker container exec` citado acima.
+⚠ Atenção ⚠ Caso opte por utilizar o Docker, **TODOS** os comandos disponíveis no `package.json` (`npm start`, `npm test`, ...) devem ser executados **DENTRO** do container, ou seja, no terminal que aparece após a execução do comando `docker container exec` citado acima.
 
 ## Localmente
 
 > Instale as dependências com `npm install`
 
 - Para rodar localmente, é preciso ter o node instalado na sua máquina.
-- A versão do node precisa ser a 16.
+- A versão local do seu node precisa ser a 16.
+
+⚠ Atenção ⚠ Não rode o comando npm audit fix! Ele atualiza várias dependências do projeto, e essa atualização pode quebrar a aplicação.
 
 </details>
 
@@ -102,7 +104,7 @@ React Testing Library
   </summary><br>
 
 - Para executar a cobertura localmente, digite no terminal o comando `npm run test-coverage`.
-- Para executar a cobertura no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm test-coverage`.
+- Para executar a cobertura no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm run test-coverage`.
 
 </details>
 

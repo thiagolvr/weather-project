@@ -42,7 +42,7 @@ describe('CityForecast page', () => {
 
   it('should show main, min, max temperature correctly', async () => {
     render(
-      <MemoryRouter initialEntries={[{ pathname: '/forecast/Recife' }]}>
+      <MemoryRouter initialEntries={[{ pathname: '/forecast/London' }]}>
         <App />
       </MemoryRouter>,
     );
@@ -151,7 +151,7 @@ describe('CityForecast page', () => {
     });
 
     render(
-      <MemoryRouter initialEntries={[{ pathname: '/forecast/London' }]}>
+      <MemoryRouter initialEntries={[{ pathname: '/forecast/Fairbanks' }]}>
         <App />
       </MemoryRouter>,
     );

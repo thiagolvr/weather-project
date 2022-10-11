@@ -1,7 +1,9 @@
 # Project Weather App
 
-Projeto que simula um app de previsão do tempo, utilizando a API do [weatherApi](https://weatherapi.com/).
-Foi desenvolvido com reactjs e styled-components.
+Projeto que simula um app de previsão do tempo.
+
+- Foi utilizada a API do [weatherApi](https://weatherapi.com/).
+- Foi desenvolvido com `reactjs` e `styled-components`.
 
 Weather
 :-------------------------:|

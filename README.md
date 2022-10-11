@@ -61,7 +61,7 @@ React Testing Library
 
 ## Docker
 
-> Rode os serviços `node` com o comando `docker compose up -d`.
+> Rode o serviço `node` com o comando `docker compose up -d`.
 
 - Esse serviço irá inicializar um container chamado `weather-app`.
 - A partir daqui você pode rodar o container `weather-app` via CLI ou via um editor de código de sua preferência. Ex: VSCode.

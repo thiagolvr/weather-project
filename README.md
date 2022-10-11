@@ -82,7 +82,7 @@ React Testing Library
 > Instale as dependências com `npm install`
 
 - Para rodar localmente, é preciso ter o node instalado na sua máquina.
-- A versão do node precisa ser 16 ou superior.
+- A versão do node precisa ser a 16.
 
 </details>
 

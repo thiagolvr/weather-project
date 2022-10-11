@@ -11,10 +11,10 @@ function PeriodsDay({ weather, urlbase, forecast }) {
           src={`${urlbase}${weather === 'snow' ? 'black' : 'white'}/${
             forecast?.dawn?.time
           }/${forecast?.dawn?.image}`}
-          alt=""
+          alt="icon of dawn temperature"
         />
         <div>
-          <span>{ Math.round(forecast?.dawn?.temperature) }</span>
+          <span data-testid="dawn-temperature">{ Math.round(forecast?.dawn?.temperature) }</span>
           <span>°</span>
           <span>C</span>
         </div>
@@ -26,10 +26,10 @@ function PeriodsDay({ weather, urlbase, forecast }) {
           src={`${urlbase}${weather === 'snow' ? 'black' : 'white'}/${
             forecast?.morning?.time
           }/${forecast?.morning?.image}`}
-          alt=""
+          alt="icon of morning temperature"
         />
         <div>
-          <span>{ Math.round(forecast?.morning?.temperature) }</span>
+          <span data-testid="morning-temperature">{ Math.round(forecast?.morning?.temperature) }</span>
           <span>°</span>
           <span>C</span>
         </div>
@@ -41,10 +41,10 @@ function PeriodsDay({ weather, urlbase, forecast }) {
           src={`${urlbase}${weather === 'snow' ? 'black' : 'white'}/${
             forecast?.afternoon?.time
           }/${forecast?.afternoon?.image}`}
-          alt=""
+          alt="icon of afternoon temperature"
         />
         <div>
-          <span>{ Math.round(forecast?.afternoon?.temperature) }</span>
+          <span data-testid="afternoon-temperature">{ Math.round(forecast?.afternoon?.temperature) }</span>
           <span>°</span>
           <span>C</span>
         </div>
@@ -56,10 +56,10 @@ function PeriodsDay({ weather, urlbase, forecast }) {
           src={`${urlbase}${weather === 'snow' ? 'black' : 'white'}/${
             forecast?.night?.time
           }/${forecast?.night?.image}`}
-          alt=""
+          alt="icon of night temperature"
         />
         <div>
-          <span>{ Math.round(forecast?.night?.temperature) }</span>
+          <span data-testid="night-temperature">{ Math.round(forecast?.night?.temperature) }</span>
           <span>°C</span>
         </div>
       </div>

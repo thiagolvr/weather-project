@@ -52,7 +52,7 @@ function CityForecast() {
             src={`${URL_BASE}${CONDITION === 'snow' ? 'black' : 'white'}/${
               forecast?.time
             }/${forecast?.image}`}
-            alt=""
+            alt="icon of main temperature"
           />
         </S.MainIcon>
         <PeriodsDay

@@ -10,7 +10,7 @@ function ForecastExtraInfo(props) {
     <S.ForecastMoreInfo weather={weather}>
       <div>
         <p>wind speed</p>
-        <span>
+        <span data-testid="wind-speed">
           { forecast?.windSpeed }
           { ' ' }
           m/s
@@ -19,17 +19,17 @@ function ForecastExtraInfo(props) {
       <hr className="first" />
       <div>
         <p>sunrise</p>
-        <span>{ sunrise }</span>
+        <span data-testid="sunrise">{ sunrise }</span>
       </div>
       <hr />
       <div>
         <p>sunset</p>
-        <span>{ sunset }</span>
+        <span data-testid="sunset">{ sunset }</span>
       </div>
       <hr />
       <div>
         <p>humidity</p>
-        <span>
+        <span data-testid="humidity">
           { forecast?.humidity }
           %
         </span>

@@ -5,17 +5,17 @@ import setArrow from '../../utils/setArrow';
 function MainTemperature({ condition, forecast }) {
   return (
     <S.TemperatureContainer>
-      <span>{ Math.round(forecast?.temperature) }</span>
+      <span data-testid="main-temperature">{ Math.round(forecast?.temperature) }</span>
       <section>
         <div>°C</div>
         <S.TemperatureInfo>
-          <p>
+          <p data-testid="max-temperature">
             <img src={setArrow(condition)} alt="arrow-up" />
             { Math.round(forecast?.maxTemperature) }
             ˚
           </p>
           <div />
-          <p>
+          <p data-testid="min-temperature">
             <img
               className="reverse"
               src={setArrow(condition)}

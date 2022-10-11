@@ -1,4 +1,4 @@
-const weatherApiMock = {
+const apiMockWhiteVersion = {
   location: {
     name: 'London',
     region: 'City of London, Greater London',
@@ -1019,4 +1019,4 @@ const weatherApiMock = {
   },
 };
 
-export default weatherApiMock;
+export default apiMockWhiteVersion;

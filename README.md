@@ -45,6 +45,9 @@ React Testing Library
   npm start
 ```
 
+⚠ Atenção ⚠ O uso de extensões do tipo dark mode pode comprometer a fidelidade das cores da aplicação e dos seus ícones.
+<br> Recomenda-se desativar a extensão para uma melhor experiência.
+
 <details>
   <summary>
     <strong>💡 Deploy</strong>

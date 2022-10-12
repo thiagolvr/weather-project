@@ -157,10 +157,9 @@ export const ForecastList = styled.div`
   p {
     font-family: "Poppins", sans-serif;
     font-size: small;
-    color: ${({ weather }) => (weather === 'snow' ? '#3d3d3d' : '#ebf6f8')};
+    color: ${({ weather }) => (weather === 'snow' ? '#3d3d3d' : '#ffffff')};
     margin-bottom: 10px;
     letter-spacing: 1px;
-
   }
 
   span:nth-child(1) {

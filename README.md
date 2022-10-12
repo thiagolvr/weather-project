@@ -5,13 +5,13 @@ Projeto que simula um app de previsão do tempo.
 - Foi utilizada a API do [weatherApi](https://weatherapi.com/).
 - Foi desenvolvido com `reactjs` e `styled-components`.
 
-Weather
+Home page
 :-------------------------:|
 ![Screeshot](./images/weather.png) |
 
 ---
 
-React Testing Library
+React Testing Library coverage
 :-------------------------:|
 ![Screeshot](./images/rtl.png) |
 
@@ -32,11 +32,11 @@ React Testing Library
   git clone git@github.com:thiagolvr/weather-project.git
 ```
 
-3. Acesse o diretório do projeto e depois utilize o comando **npm i** para instalar todas as dependências necessárias:
+3. Acesse o diretório do projeto e depois utilize o comando **npm install** para instalar todas as dependências necessárias:
 
 ```javascript
   cd weather-project
-  npm i
+  npm install
 ```
 
 4. Inicialize a aplicação localmente com comando **npm start** e acesse o endereço **http://localhost:3000**:
@@ -66,6 +66,10 @@ React Testing Library
 
 > Rode o serviço `node` com o comando `docker compose up -d`.
 
+```javascript
+  docker compose up -d
+```
+
 - Esse serviço irá inicializar um container chamado `weather-app`.
 - A partir daqui você pode rodar o container `weather-app` via CLI ou via um editor de código de sua preferência. Ex: VSCode.
 - Lembre-se de verificar se a sua porta 3000 não está ocupada.
@@ -74,6 +78,10 @@ React Testing Library
 - Para parar o container, utilize o comando `docker compose down`.
 
 > Use o comando `docker container exec -it weather-app sh`.
+
+```javascript
+  docker container exec -it weather-app sh
+```
 
 - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
 - Você poderá usar esse terminal para executar os comandos do npm (`npm start`, `npm test` ...)
@@ -85,6 +93,10 @@ React Testing Library
 ## Localmente
 
 > Instale as dependências com `npm install`
+
+```javascript
+  npm install
+```
 
 - Para rodar localmente, é preciso ter o node instalado na sua máquina.
 - A versão local do seu node precisa ser a 16.
@@ -99,15 +111,45 @@ React Testing Library
   </summary><br>
 
 - Para executar os testes localmente, digite no terminal o comando `npm test`.
-- Para executar os testes no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm test`.
+
+```javascript
+  npm test
+```
+
+- Para executar os testes no Docker, digite no terminal o comando `docker container exec -it weather-app sh` para entrar no terminal interativo do container.
+
+```javascript
+  docker container exec -it weather-app sh
+```
+
+- Digite o comando `npm test` para executar os testes.
+
+```javascript
+  npm test
+```
 
 <details>
   <summary>
-    <strong>🛠 Cobertura</strong>
+    <strong>🛠 Cobertura dos Testes</strong>
   </summary><br>
 
-- Para executar a cobertura localmente, digite no terminal o comando `npm run test-coverage`.
-- Para executar a cobertura no Docker, digite no terminal o comando `docker container exec -it weather-app sh` e depois `npm run test-coverage`.
+- Para executar a cobertura dos testes localmente, digite no terminal o comando `npm run test-coverage`.
+
+```javascript
+  npm run test-coverage
+```
+
+- Para executar a cobertura dos testes no Docker, digite no terminal o comando `docker container exec -it weather-app sh` para entrar no terminal interativo do container.
+
+```javascript
+  docker container exec -it weather-app sh
+```
+
+- Digite o comando `npm run test-coverage` para executar a cobertura dos testes.
+
+```javascript
+  npm run test-coverage
+```
 
 </details>
 

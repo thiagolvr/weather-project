@@ -1,11 +1,9 @@
 import * as PropTypes from 'prop-types';
 import * as S from '../../pages/CityForecast/style';
 
-function ForecastExtraInfo(props) {
-  const {
-    weather, forecast, sunrise, sunset,
-  } = props;
-
+function ForecastExtraInfo({
+  weather, forecast, sunrise, sunset,
+}) {
   return (
     <S.ForecastMoreInfo weather={weather}>
       <div>

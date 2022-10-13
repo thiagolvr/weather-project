@@ -1,4 +1,5 @@
-import verifyConditions from './verifyConditions';
+const verifyConditions = (arr, condition) => arr
+  .some((conditionVariant) => condition?.toLowerCase().includes(conditionVariant));
 
 const RAIN_VARIANTS = [
   'rain',

@@ -1,6 +1,14 @@
 import * as PropTypes from 'prop-types';
 import * as S from '../../pages/CityForecast/style';
-import setArrow from '../../utils/setArrow';
+import arrowRain from '../../assets/icons/arrowRain.svg';
+import arrowSnow from '../../assets/icons/arrowSnow.svg';
+import arrowSun from '../../assets/icons/arrowSun.svg';
+
+const setArrow = (condition) => ({
+  rain: arrowRain,
+  snow: arrowSnow,
+  sun: arrowSun,
+})[condition];
 
 function MainTemperature({ condition, forecast }) {
   return (
@@ -10,7 +18,7 @@ function MainTemperature({ condition, forecast }) {
         <div>°C</div>
         <S.TemperatureInfo>
           <p data-testid="max-temperature">
-            <img src={setArrow(condition)} alt="arrow-up" />
+            <img src={setArrow(condition)} alt="arrow up icon for max temperature" />
             { Math.round(forecast?.maxTemperature) }
             ˚
           </p>
@@ -19,7 +27,7 @@ function MainTemperature({ condition, forecast }) {
             <img
               className="reverse"
               src={setArrow(condition)}
-              alt="arrow-down"
+              alt="arrow down icon for min temperature"
             />
             { Math.round(forecast?.minTemperature) }
             ˚

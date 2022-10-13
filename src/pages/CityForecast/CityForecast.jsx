@@ -7,7 +7,7 @@ import Loading from '../../components/Loading/Loading';
 import arrowBack from '../../assets/icons/arrowBack.svg';
 import PeriodsDay from '../../components/PeriodsDay/PeriodsDay';
 import ForecastExtraInfo from '../../components/ForecastExtraInfo/ForecastExtraInfo';
-import constants from '../../utils/constants';
+import { constantsForForecast } from '../../utils/constants';
 import MainTemperature from '../../components/MainTemperature/MainTemperature';
 
 function CityForecast() {
@@ -17,7 +17,7 @@ function CityForecast() {
   const [loading, setLoading] = useState(true);
   const {
     SUNRISE, SUNSET, CONDITION, URL_BASE,
-  } = constants(forecast);
+  } = constantsForForecast(forecast);
 
   useEffect(() => {
     setLoading(true);

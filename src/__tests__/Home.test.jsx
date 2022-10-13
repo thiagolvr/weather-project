@@ -1,25 +1,13 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Home from '../pages/Home/Home';
-
-const cities = [
-  'Dallol',
-  'Fairbanks',
-  'London',
-  'Recife',
-  'Vancouver',
-  'Yakutsk',
-];
+import { CITIES } from '../utils/constants';
+import renderWithRouter from '../utils/renderWithRouter';
 
 describe('Home page', () => {
   beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>,
-    );
+    renderWithRouter(<Home />, true);
   });
 
   it('should render the Home page "weather" title', () => {
@@ -32,18 +20,23 @@ describe('Home page', () => {
     expect(subtitle).toBeInTheDocument();
   });
 
+  it('should render the word icon', () => {
+    const subtitle = screen.getByAltText(/word icon for home/i);
+    expect(subtitle).toHaveAttribute('src', 'word-icon.png');
+  });
+
   it('should render the Home page city options buttons', () => {
     const citiesButton = screen.getAllByRole('button');
-    expect(citiesButton).toHaveLength(cities.length);
+    expect(citiesButton).toHaveLength(CITIES.length);
 
-    cities.forEach((city) => {
+    CITIES.forEach((city) => {
       const cityOptionButton = screen.getByText(city);
       expect(cityOptionButton).toBeInTheDocument();
     });
   });
 
   it('should direct link to the forecast of the correct city', () => {
-    cities.forEach((city) => {
+    CITIES.forEach((city) => {
       const cityOptionButton = screen.getByText(city);
       userEvent.click(cityOptionButton);
       expect(document.location.pathname).toBe(`/forecast/${city}`);

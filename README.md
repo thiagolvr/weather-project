@@ -5,6 +5,14 @@ Projeto que simula um app de previsão do tempo.
 - Foi utilizada a API do [weatherApi](https://weatherapi.com/).
 - Foi desenvolvido com `reactjs` e `styled-components`.
 
+
+App
+:-------------------------:|
+![](https://github.com/thiagolvr/weather-project/blob/master/images/weather-app.gif)
+
+---
+
+
 React Testing Library coverage
 :-------------------------:|
 ![Screeshot](./images/rtl.png) |
